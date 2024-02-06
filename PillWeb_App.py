@@ -76,7 +76,7 @@ import requests
 from io import BytesIO
 import numpy as np
 import cv2
-
+np_version = '1.21.0'
 
 # Load the trained model
 def load_model():
@@ -118,15 +118,22 @@ col2.title("Pill Classifier App")
 uploaded_image = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 capture_image = st.sidebar.button("Capture Image")
 
-def preprocess_image(image, target_size):
+def preprocess_image(image, target_size, np_version):
     img = Image.open(image).resize(target_size)
     img_array = np.asarray(img)
-    if img_array.shape[-1] == 4:  # Fix here, use img_array instead of img
-        img_array = img_array[:, :, :3]
+    
+    if np_version >= '1.17.0':  # Use np_version to check the NumPy version
+        if img_array.shape[-1] == 4:
+            img_array = img_array[:, :, :3]
+    else:
+        if img_array.shape[-1] == 4:
+            img_array = img_array[:, :, :3]
+            
     img_array = img_array / 255.0
     img_array = np.expand_dims(img_array, axis=0)
-    
+
     return img_array
+
 
 # Check if an image is uploaded
 if uploaded_image is not None:
@@ -135,7 +142,8 @@ if uploaded_image is not None:
 
     # Perform image classification using your model
     # Preprocess the image (resize, normalize, etc.) as needed
-    img_array = preprocess_image(uploaded_image, target_size=(64, 64))
+    img_array = preprocess_image(uploaded_image, target_size=(64, 64), np_version=np_version)
+
     
     # Make predictions
     predictions = model.predict(img_array)
