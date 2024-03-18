@@ -144,49 +144,17 @@ if uploaded_image is not None:
     predicted_class = np.argmax(predictions)
 
     if (predicted_class == 0):
-        st.write(f"Diagnosis: Amoxicillin 500 MG")
-    elif (predicted_class == 5):
-        st.write(f"Diagnosis: Apixaban 2.5 MG")
-    elif (predicted_class == 6):
-        st.write(f"Diagnosis: Aprepitant 80 MG")
+        st.write(f"Diagnosis: Blue M&M")
     elif (predicted_class == 1):
-        st.write(f"Diagnosis: Atomoxetine 25 MG")
-    elif (predicted_class == 7):
-        st.write(f"Diagnosis: Benzonatate 100 MG")
+        st.write(f"Diagnosis: Green M&M")
     elif (predicted_class == 2):
-        st.write(f"Diagnosis: Calcitriol 0.00025 MG")
-    elif (predicted_class == 8):
-        st.write(f"Diagnosis: Carvedilol 3.125 MG")
-    elif (predicted_class == 9):
-        st.write(f"Diagnosis: Celecoxib 200 MG")
-    elif (predicted_class == 10):
-        st.write(f"Diagnosis: Duloxetine 30 MG")
-    elif (predicted_class == 11):
-        st.write(f"Diagnosis: Eltrombopag 25 MG")
-    elif (predicted_class == 12):
-        st.write(f"Diagnosis: Montelukast 10 MG")
-    elif (predicted_class == 13):
-        st.write(f"Diagnosis: Mycophenolate Mofetil 250 MG")
+        st.write(f"Diagnosis: Orange Mike and Ike")
     elif (predicted_class == 3):
-        st.write(f"Diagnosis: Oseltamivir 45 MG")
-    elif (predicted_class == 14):
-        st.write(f"Diagnosis: Pantoprazole 40 MG")
-    elif (predicted_class == 15):
-        st.write(f"Diagnosis: Pitavastatin 1 MG")
-    elif (predicted_class == 16):
-        st.write(f"Diagnosis: Prasugrel 10 MG")
-    elif (predicted_class == 4):
-        st.write(f"Diagnosis: Ramipril 5 MG")
-    elif (predicted_class == 17):
-        st.write(f"Diagnosis: Saxagliptin 5 MG")
-    elif (predicted_class == 18):
-        st.write(f"Diagnosis: Sitagliptin 50 MG")
-    elif (predicted_class == 19):
-        st.write(f"Diagnosis: Tadalafil 5 MG")
+        st.write(f"Diagnosis: White Tic-tac")
 
 
 # Add a footer with additional information
 st.text("")
 st.text("")
-st.text("Pills include: Amoxicillin 500 MG, Apixaban 2.5 MG, Aprepitant 80 MG, Atomoxetine 25 MG, Benzonatate 100 MG, Calcitriol 0.00025 MG, Carvedilol 3.125 MG, Celecoxib 200 MG, Duloxetine 30 MG, Eltrombopag 25 MG, Montelukast 10 MG, Mycophenolate Mofetil 250 MG, Oseltamivir 45 MG, Pantoprazole 40 MG, Pitavastatin 1 MG, Prasugrel 10 MG, Ramipril 5 MG, Saxagliptin 5 MG, Sitagliptin 50 MG, Tadalafil 5 MG")
+st.text("Pills include: Blue M&M, Green M&M, Orange Mike and Ike, and White Tic-tac")
 st.text("This is a simple pill classifier web app.")
